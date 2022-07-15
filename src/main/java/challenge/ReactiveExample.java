@@ -42,7 +42,7 @@ public class ReactiveExample {
 
         return estudiantes.map(this.mapeoDeEstudianteAPuntaje())
                 .reduce(0, Integer::sum);
-    } //916819332
+    }
 
     private Function<Estudiante, Integer> mapeoDeEstudianteAPuntaje() {
         return Estudiante::getPuntaje;
@@ -100,10 +100,7 @@ public class ReactiveExample {
         return estudiantes.filter(estudiante -> estudiante.getPuntaje() >= 75)
                 .map(estudiante -> {
                     var nombre = estudiante.getNombre();
-                    var puntaje = estudiante.getPuntaje();
-                    var asistencias = estudiante.getAsistencias();
-
-                    return new Estudiante(nombre, puntaje, asistencias).toString();
+                    return nombre;
                 });
     }
 }
